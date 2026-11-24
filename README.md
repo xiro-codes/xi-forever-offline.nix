@@ -31,7 +31,7 @@ In your system or Home Manager `flake.nix`:
 ```nix
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
     xi-forever-offline = {
       url = "git+file:///home/tod/Desktop/xi-forever-offline"; # or github:<you>/xi-forever-offline-nix

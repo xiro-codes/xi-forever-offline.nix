@@ -51,8 +51,48 @@ let
     ln -s ${pkgs.libx11}/share/X11/locale $out/share/X11/locale
   '';
 
+  # Backported python-xlib derivation for stable nixpkgs (nixos-26.05)
+  mkPythonXlib =
+    ps:
+    ps.buildPythonPackage rec {
+      pname = "python-xlib";
+      version = "0.33";
+      pyproject = true;
+
+      src = pkgs.fetchFromGitHub {
+        owner = "python-xlib";
+        repo = "python-xlib";
+        tag = version;
+        hash = "sha256-u06OWlMIOUzHOVS4hvm72jGgTSXWUqMvEQd8bTpFog0=";
+      };
+
+      build-system = [
+        (ps.setuptools-scm.override {
+          setuptools = ps.setuptools_80 or ps.setuptools;
+        })
+      ];
+
+      buildInputs = [ pkgs.libx11 ];
+
+      dependencies = [ ps.six ];
+
+      doCheck = false;
+
+      meta = {
+        changelog = "https://github.com/python-xlib/python-xlib/releases/tag/${version}";
+        description = "Fully functional X client library for Python programs";
+        homepage = "https://github.com/python-xlib/python-xlib";
+        license = lib.licenses.lgpl21Plus;
+      };
+    };
+
   pythonEnv = pkgs.python3.withPackages (
-    ps: with ps; [
+    ps:
+    let
+      python-xlib = ps.python-xlib or (mkPythonXlib ps);
+    in
+    with ps;
+    [
       tkinter
       pillow
       certifi

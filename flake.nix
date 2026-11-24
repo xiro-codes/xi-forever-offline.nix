@@ -2,7 +2,7 @@
   description = "XI: Forever Offline installable package, overlay, and modules for NixOS";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     xi-forever-offline = {
       url = "github:Hurami89/xi-forever-offline";
       flake = false;
