@@ -1,0 +1,44 @@
+{
+  "nodes": {
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1795234589,
+        "narHash": "sha256-f/VVvxf5RsQgWVhUtefoca5ktVg0DA2bnkMOcmSnozo=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "2786a2a72088ecf32aea5b3ec52099e6a7cff78f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "xi-forever-offline": "xi-forever-offline"
+      }
+    },
+    "xi-forever-offline": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1795515891,
+        "narHash": "sha256-HzXYLQzzYc1+3IdVF+OfTdvQ0+nZZ5MmYGhSpoMa4kQ=",
+        "owner": "Hurami89",
+        "repo": "xi-forever-offline",
+        "rev": "f2510007f9fb0dc4cb19a4ac69734c16c66e24e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Hurami89",
+        "repo": "xi-forever-offline",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
